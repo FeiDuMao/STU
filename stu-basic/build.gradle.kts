@@ -14,5 +14,6 @@ dependencies {
     implementation(libs.mockito.kotlin)
 }
 
-
-
+tasks.getByName<Test>("test") {
+    useJUnitPlatform()
+}
