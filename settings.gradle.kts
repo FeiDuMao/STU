@@ -8,6 +8,7 @@ rootProject.name = "TYY"
 
 
 include("stu-svc-app")
+include("stu-basic")
 
 include(
     "stu-starter-edu:stu-starter-edu-core",
