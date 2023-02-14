@@ -11,6 +11,7 @@ slf4j="1.7.36"
 mysql = "8.0.30"
 kotlin_plugin = "1.7.20"
 jackson = "2.13.4"
+jmh="1.36"
 
 [libraries]
 
@@ -44,6 +45,8 @@ slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 mysqlDriver = { module = "mysql:mysql-connector-java", version.ref = "mysql" }
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
 jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+jmh-core ={ module = "org.openjdk.jmh:jmh-core",version.ref ="jmh"}
+jmh-generator-annprocess ={ module = "org.openjdk.jmh:jmh-generator-annprocess",version.ref ="jmh"}
 
 
 [plugins]

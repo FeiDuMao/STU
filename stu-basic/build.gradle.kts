@@ -12,6 +12,12 @@ dependencies {
     implementation(libs.junit.engine)
     implementation(libs.mockito.core)
     implementation(libs.mockito.kotlin)
+
+
+    implementation(libs.jmh.core)
+    annotationProcessor(libs.jmh.generator.annprocess)
+
+
 }
 
 tasks.getByName<Test>("test") {
