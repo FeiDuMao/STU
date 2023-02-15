@@ -10,14 +10,9 @@ plugins {
 
 dependencies {
 
-
-
     implementation(libs.slf4j)
-    implementation(platform(libs.springboot.dependencies))
-    implementation(libs.springboot.web)
-    implementation(libs.springboot.data.jpa)
-
     implementation(libs.bundles.jacksonApi)
+
 }
 
 

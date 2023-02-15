@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 
+/**
+ * 测试数组与链表在CRUD下的性能
+ */
 @State(Scope.Thread)
 @Warmup(iterations = 1)
 @Measurement(iterations = 2)

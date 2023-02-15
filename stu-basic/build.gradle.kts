@@ -8,11 +8,17 @@ plugins {
 
 
 dependencies {
+
+    implementation(project(":common"))
+
+    implementation(libs.slf4j)
+
     implementation(libs.junit.api)
     implementation(libs.junit.engine)
     implementation(libs.mockito.core)
     implementation(libs.mockito.kotlin)
 
+    implementation(libs.bundles.jacksonApi)
 
     implementation(libs.jmh.core)
     annotationProcessor(libs.jmh.generator.annprocess)

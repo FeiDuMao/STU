@@ -10,7 +10,7 @@ guava = "31.1-jre"
 slf4j="1.7.36"
 mysql = "8.0.30"
 kotlin_plugin = "1.7.20"
-jackson = "2.13.4"
+jackson = "2.14.2"
 jmh="1.36"
 
 [libraries]
@@ -43,10 +43,24 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 mysqlDriver = { module = "mysql:mysql-connector-java", version.ref = "mysql" }
+
+#jackson
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
-jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-datatype = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" ,version.ref= "jackson" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin",version.ref="jackson" }
+
 jmh-core ={ module = "org.openjdk.jmh:jmh-core",version.ref ="jmh"}
 jmh-generator-annprocess ={ module = "org.openjdk.jmh:jmh-generator-annprocess",version.ref ="jmh"}
+
+
+[bundles]
+jacksonApi = [
+    "jackson-core",
+    "jackson-databind",
+    "jackson-datatype",
+    "jackson-module-kotlin"
+]
 
 
 [plugins]
