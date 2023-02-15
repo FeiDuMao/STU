@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tyy.stu.utils.JsonUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.URI;
@@ -15,7 +14,6 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Collection;
 
-@Slf4j
 public class HttpTest {
 
 
@@ -36,8 +34,9 @@ public class HttpTest {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JaaResp resp = JsonUtil.reade(response.body(), JaaResp.class);
-        log.info("resp is {}",resp);
-
+        String json = JsonUtil.toJson(resp);
+        JaaResp reade = JsonUtil.reade(json, JaaResp.class);
+        System.out.println(reade);
     }
 
     @NoArgsConstructor

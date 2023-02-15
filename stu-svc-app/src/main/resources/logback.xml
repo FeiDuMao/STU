@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <variable name="log-path" value="${LOG_BASE_PATH:-${java.io.tmpdir}}"/>
+    <variable name="app-name" value="tyy-stu-svc"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %highlight(%-5p) | %d{yyyy-MM-dd HH:mm:ss:SSS} | %yellow([%t]) %cyan(%C{2}) %red(\(%F:%L\)) - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log-path}/${app-name}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log-path}/${app-name}-%d{yyyy-MM-dd-HH}-%i.log</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize>
+            <maxHistory>20</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%-5p | %d{yyyy-MM-dd HH:mm:ss:SSS} | [%t] %C{2} (%F:%L\) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RollingFileError" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <file>${log-path}/${app-name}-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log-path}/${app-name}-error-%d{yyyy-MM-dd-HH}-%i.log</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize>
+            <maxHistory>20</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%-5p | %d{yyyy-MM-dd HH:mm:ss:SSS} | [%t] %C{2} (%F:%L\) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="RollingFileError"/>
+    </root>
+
+</configuration>
