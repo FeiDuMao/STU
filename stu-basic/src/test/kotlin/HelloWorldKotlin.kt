@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test
 
-class HelloWorld {
+class HelloWorldKotlin {
 
     @Test
     fun test(){

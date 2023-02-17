@@ -1,0 +1,34 @@
+
+tar -czvf  目标文件.tar.gz  源文件 	//源文件进行压缩；
+
+tar -xzvf 源文件.tar.gz	[-C dir_name]	//将源文件解压到当前目录下 [解压到指定目录]
+
+    -c： 创建新的归档文件
+    -x：从归档文件中释放文件
+    -f：使用归档文件或设备
+    -v：详细报告tar的归档信息
+    -z：通过gzip过滤归档
+    -j：通过bzip2过滤归档
+    -J：通过xz过滤归档
+
+find / -name "*.conf"	//找到根目录下，以.conf结尾的文件
+
+du -h -d [n]//查看n层文件大小
+
+history 查看命令使用历史记录
+
+grep 搜索命令执行的结果
+
+wc -l 查看结果的行数
+
+ps -ef 查看所有进程
+
+
+
+
+windows运行环境搭建
+**须在管理员模式运行
+启动redis：redis-server（有时可能需要指定配置文件：进入redis根目录，redis-server redis.windos.conf ）
+启动mysql：net start mysql
+关闭mysql：net stop mysql
+

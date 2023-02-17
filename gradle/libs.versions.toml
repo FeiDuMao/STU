@@ -9,7 +9,7 @@ lombok = "1.18.24"
 guava = "31.1-jre"
 slf4j="1.7.36"
 mysql = "8.0.30"
-kotlin_plugin = "1.7.20"
+kotlin_plugin = "1.8.10"
 jackson = "2.14.2"
 jmh="1.36"
 
