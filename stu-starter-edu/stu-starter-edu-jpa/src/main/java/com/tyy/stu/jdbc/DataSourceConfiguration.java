@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 @Configuration
-public class StudyDataBaseConfiguration {
+public class DataSourceConfiguration {
 
 
     @Bean
@@ -18,7 +18,19 @@ public class StudyDataBaseConfiguration {
     }
 
     @Bean("db_study")
-    public NamedParameterJdbcTemplate jdbcTemplate(@Qualifier("studyDataBase") HikariDataSource dataSource) {
+    public NamedParameterJdbcTemplate studyJdbcTemplate(@Qualifier("studyDataBase") HikariDataSource dataSource) {
+        return new NamedParameterJdbcTemplate(dataSource);
+    }
+
+
+    @Bean
+    @ConfigurationProperties(prefix = "tyy.datasource.jaa")
+    public HikariDataSource jaaDataBase() {
+        return new HikariDataSource();
+    }
+
+    @Bean("db_jaa")
+    public NamedParameterJdbcTemplate jaaJdbcTemplate(@Qualifier("jaaDataBase") HikariDataSource dataSource) {
         return new NamedParameterJdbcTemplate(dataSource);
     }
 
