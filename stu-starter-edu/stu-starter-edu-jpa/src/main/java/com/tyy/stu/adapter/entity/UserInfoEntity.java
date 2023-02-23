@@ -1,5 +1,6 @@
 package com.tyy.stu.adapter.entity;
 
+import com.tyy.stu.domain.UserInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Table(name = "user")
+@Table(name = "user_info")
 @Entity
 @Builder
 @AllArgsConstructor
@@ -27,5 +28,21 @@ public class UserInfoEntity implements Serializable {
     private Boolean subscribeUpdateNote;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
+
+
+    public UserInfo convert() {
+        return UserInfo.builder()
+                .userName(userName)
+                .nickName(nickName)
+                .password(password)
+                .phone(phone)
+                .deptName(deptName)
+                .status(status)
+                .subscribeUpdateNote(subscribeUpdateNote)
+                .createTime(createTime)
+                .updateTime(updateTime)
+                .build();
+    }
+
 
 }

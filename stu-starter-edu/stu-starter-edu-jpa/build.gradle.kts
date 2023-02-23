@@ -17,6 +17,7 @@ dependencies {
     implementation(libs.springboot.jdbc)
     implementation(libs.springboot.data.jpa)
     implementation(platform(libs.springboot.dependencies))
+
 }
 
 

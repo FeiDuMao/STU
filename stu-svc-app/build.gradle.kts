@@ -10,6 +10,8 @@ plugins {
 
 dependencies {
 
+    implementation(project(":stu-starter-edu:stu-starter-edu-core"))
+    implementation(project(":stu-starter-edu:stu-starter-edu-jpa"))
     implementation(project(":stu-starter-edu:stu-starter-edu-rest"))
     implementation(project(":stu-starter-edu:stu-starter-edu-integration"))
 
@@ -22,6 +24,7 @@ dependencies {
 
     implementation(libs.bundles.jacksonApi)
 
+    testImplementation(libs.springboot.test)
     runtimeOnly(libs.mysqlDriver)
     runtimeOnly(libs.springboot.actuator)
 }
