@@ -17,21 +17,21 @@ jmh="1.36"
 
 #springboot
 springboot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springboot" }
-springboot-starter = { module = "org.springframework.boot:spring-boot-starter" }
-springboot-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+springboot-starter = { module = "org.springframework.boot:spring-boot-starter" ,version.ref = "springboot"}
+springboot-web = { module = "org.springframework.boot:spring-boot-starter-web" ,version.ref = "springboot"}
 spring-web = { module = "org.springframework:spring-web", version.ref = "spring" }
 spring-core = { module = "org.springframework:spring-core", version.ref = "spring" }
 
-springboot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+springboot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" ,version.ref = "springboot"}
 springboot-processor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springboot" }
-springboot-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc" }
-springboot-data-jdbc = { module = "org.springframework.boot:spring-boot-starter-data-jdbc" }
-springboot-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
-springboot-aop = { module = "org.springframework.boot:spring-boot-starter-aop" }
+springboot-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc",version.ref = "springboot" }
+springboot-data-jdbc = { module = "org.springframework.boot:spring-boot-starter-data-jdbc",version.ref = "springboot" }
+springboot-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa",version.ref = "springboot" }
+springboot-aop = { module = "org.springframework.boot:spring-boot-starter-aop" ,version.ref = "springboot"}
 
 
 #test
-springboot-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+springboot-test = { module = "org.springframework.boot:spring-boot-starter-test",version.ref = "springboot" }
 junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }

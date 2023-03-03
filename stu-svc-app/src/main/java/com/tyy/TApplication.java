@@ -10,6 +10,13 @@ import org.springframework.context.event.EventListener;
 @Slf4j
 @SpringBootApplication
 @ConfigurationPropertiesScan("com.tyy")
+//@EnableAutoConfiguration(exclude = {
+//        JndiConnectionFactoryAutoConfiguration.class,
+//        DataSourceAutoConfiguration.class,
+//        HibernateJpaAutoConfiguration.class,
+//        JpaRepositoriesAutoConfiguration.class,
+//        DataSourceTransactionManagerAutoConfiguration.class
+//})
 public class TApplication {
     public static void main(String[] args) {
         SpringApplication.run(TApplication.class, args);
