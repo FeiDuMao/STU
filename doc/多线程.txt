@@ -38,7 +38,7 @@ sleep()、wait()、yeild()、join()方法的区别：
 	3.wait会释放lock，需要别的线程调用notify来将其唤醒
 	4.sleep不需要被唤醒，wait需要。
 	5.yeild只是将当前线程转变为就绪状态，不一定会获取cpu
-	6.a.join()被调用后，会等待a线程执行完成之后，才会继续往下走	
+	6.classA.join()被调用后，会等待a线程执行完成之后，才会继续往下走
 
 
 线程数与cpu核心关系：

@@ -12,13 +12,13 @@ import java.util.stream.Stream;
 public class ConcurrentTest {
 
 
-
     public static void main(String[] args) {
 
 
         Stream<Integer> integerStream1 = IntStream.range(0, 100).boxed();
         Stream<Integer> integerStream2 = IntStream.range(0, 100).boxed();
         Stream<Integer> integerStream3 = IntStream.range(0, 100).boxed();
+        Stream<Integer> integerStream4 = IntStream.range(0, 100).boxed();
         long m1 = System.currentTimeMillis();
 
 
@@ -49,13 +49,22 @@ public class ConcurrentTest {
 
         long m6 = System.currentTimeMillis();
 
+        Map<Integer, List<String>> result4 = integerStream4.parallel().collect(Collectors.toConcurrentMap(
+                Function.identity(),
+                ConcurrentTest::fun
+        ));
+        long m7 = System.currentTimeMillis();
+
+
         System.out.println(m2 - m1);
         System.out.println(m4 - m3);
         System.out.println(m6 - m5);
+        System.out.println(m7 - m6);
 
-        Assertions.assertEquals(result1,result2);
-        Assertions.assertEquals(result1,result3);
-        Assertions.assertEquals(result2,result3);
+        Assertions.assertEquals(result1, result2);
+        Assertions.assertEquals(result1, result3);
+        Assertions.assertEquals(result2, result3);
+        Assertions.assertEquals(result3, result4);
 
     }
 
