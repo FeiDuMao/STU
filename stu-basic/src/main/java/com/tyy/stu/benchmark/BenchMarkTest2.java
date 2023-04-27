@@ -21,7 +21,7 @@ import java.util.Random;
 @BenchmarkMode(Mode.Throughput)
 public class BenchMarkTest2 {
 
-    @Param({"10","100"})
+    @Param({"100000"})
     int n;
 
     List<Integer> list1;
@@ -90,13 +90,12 @@ public class BenchMarkTest2 {
     }
 
 
-
     public static void main(String[] args) throws RunnerException {
         Options options = new OptionsBuilder()
                 .include(BenchMarkTest2.class.getSimpleName())
-                .forks(8)
+                .forks(4)
                 .build();
-         new Runner(options).run();
+        new Runner(options).run();
 
     }
 

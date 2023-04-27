@@ -4,6 +4,8 @@ import com.tyy.stu.domain.UserInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,11 +24,19 @@ public class UserInfoEntity implements Serializable {
     private String userName;
     private String nickName;
     private String password;
+    /**
+     * @JoinColumn(name = "role")
+     * @NotFound(action = NotFoundAction.IGNORE)
+     * @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+     * private Role role;
+     */
     private String phone;
     private String deptName;
     private String status;
     private Boolean subscribeUpdateNote;
+    @Generated(GenerationTime.INSERT)
     private LocalDateTime createTime;
+    @Generated(GenerationTime.ALWAYS)
     private LocalDateTime updateTime;
 
 
