@@ -23,12 +23,17 @@ spring:
 tyy:
   datasource:
     study:
-      jdbc-url: jdbc:mysql://${mysql.host:127.0.0.1}:${mysql.port:3306}/study?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      jdbcUrl: jdbc:mysql://${mysql.host:127.0.0.1}:${mysql.port:3306}/study?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: ${mysql.username:root}
       password: ${mysql.password:beifa888}
       driver-class-name: com.mysql.cj.jdbc.Driver
     jaa:
-      jdbc-url: jdbc:mysql://${mysql.host:127.0.0.1}:${mysql.port:3306}/jaa?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      jdbcUrl: jdbc:mysql://${mysql.host:127.0.0.1}:${mysql.port:3306}/jaa?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: ${mysql.username:root}
+      password: ${mysql.password:beifa888}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    bar:
+      jdbcUrl: jdbc:mysql://${mysql.host:127.0.0.1}:${mysql.port:3306}/new_bar?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: ${mysql.username:root}
       password: ${mysql.password:beifa888}
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -57,6 +62,19 @@ mysql:
   host: 192.168.0.182
   port: 31961
   database: study
+  username: root
+  password: beifa888
+
+---
+---
+spring:
+  config:
+    activate:
+      on-profile: new-bar-demo1
+mysql:
+  host: 192.168.0.182
+  port: 46627
+  database: new_bar
   username: root
   password: beifa888
 

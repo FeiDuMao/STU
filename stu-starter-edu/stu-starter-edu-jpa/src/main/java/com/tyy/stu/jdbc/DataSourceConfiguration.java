@@ -23,6 +23,9 @@ public class DataSourceConfiguration {
     }
 
 
+
+
+
     @Bean
     @ConfigurationProperties(prefix = "tyy.datasource.jaa")
     public HikariDataSource jaaDataBase() {
@@ -31,6 +34,21 @@ public class DataSourceConfiguration {
 
     @Bean("db_jaa")
     public NamedParameterJdbcTemplate jaaJdbcTemplate(@Qualifier("jaaDataBase") HikariDataSource dataSource) {
+        return new NamedParameterJdbcTemplate(dataSource);
+    }
+
+
+
+
+
+    @Bean
+    @ConfigurationProperties(prefix = "tyy.datasource.bar")
+    public HikariDataSource newBarDataBase() {
+        return new HikariDataSource();
+    }
+
+    @Bean("db_new_bar")
+    public NamedParameterJdbcTemplate newBarJdbcTemplate(@Qualifier("newBarDataBase") HikariDataSource dataSource) {
         return new NamedParameterJdbcTemplate(dataSource);
     }
 

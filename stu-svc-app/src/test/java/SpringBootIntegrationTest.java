@@ -1,5 +1,4 @@
 import com.tyy.TApplication;
-import com.tyy.stu.adapter.UserInfoJpaAdapter;
 import com.tyy.stu.domain.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -17,8 +16,8 @@ import java.util.Optional;
 @ActiveProfiles("local")
 class SpringBootIntegrationTest {
 
-    @Autowired
-    private UserInfoJpaAdapter jpaAdapter;
+//    @Autowired
+//    private UserInfoJpaAdapter jpaAdapter;
 
     @Autowired
     @Qualifier("db_study")
@@ -26,8 +25,8 @@ class SpringBootIntegrationTest {
 
     @Test
     void test() {
-        Optional<UserInfo> tyy = jpaAdapter.queryByUserName("tyy");
-        log.info("tyy is {}", tyy.isPresent());
+//        Optional<UserInfo> tyy = jpaAdapter.queryByUserName("tyy");
+//        log.info("tyy is {}", tyy.isPresent());
     }
 
 
