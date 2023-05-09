@@ -79,7 +79,7 @@ class GenarateEsgDataTest {
             double score3 = random.nextDouble(0, 10);
 
             double total = (score1 + score2 + score3) / 3;
-            String rating = getRatingSRLD(total);
+            String rating = getRatingMSCI(total);
             return Map.<String, Object>of(
                     "report_date", date,
                     "stock_code", stockCode,
