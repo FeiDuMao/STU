@@ -23,6 +23,7 @@ dependencies {
     implementation(platform(libs.springboot.dependencies))
     implementation(libs.springboot.web)
     implementation(libs.springboot.data.jpa)
+    implementation(libs.guava)
 
     implementation(libs.bundles.jacksonApi)
 
