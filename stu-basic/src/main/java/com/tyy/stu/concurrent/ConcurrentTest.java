@@ -1,15 +1,63 @@
 package com.tyy.stu.concurrent;
 
+import com.tyy.stu.utils.TExecutor;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ConcurrentTest {
+
+
+    @SneakyThrows
+    @Test
+    public void test2() {
+        Future<String> execute = TExecutor.execute(() -> {
+            Thread.sleep(10000);
+            return "A";
+        });
+        execute.get();
+    }
+
+
+    @SneakyThrows
+    @Test
+    public void test() {
+
+        ThreadPoolExecutor executor = TExecutor.getExecutor();
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("aaa");
+            }
+        }, 1000);
+
+        List<String> result = new ArrayList<>();
+
+        Future<List<String>> future = executor.submit(
+                () -> {
+                    result.add("aaa");
+                    result.add("bbb");
+                    result.add("ccc");
+                    System.out.println("add success");
+                }, result
+        );
+        Future<String> result1 = executor.submit(() -> "null");
+        result1.get();
+        List<String> strings = future.get();
+        System.out.println(strings.toString());
+
+
+    }
 
 
     public static void main(String[] args) {

@@ -47,7 +47,7 @@ class GenarateEsgDataTest {
                 .collect(Collectors.toList());
 
 
-        Lists.partition(allData, 1000).parallelStream().forEach(data -> {
+        Lists.partition(allData, 2000).parallelStream().forEach(data -> {
 
             MapSqlParameterSource[] mapSqlParameterSources = data.stream()
                     .map(MapSqlParameterSource::new)
