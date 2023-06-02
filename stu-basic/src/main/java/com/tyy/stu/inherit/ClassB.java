@@ -7,6 +7,16 @@ public class ClassB extends ClassA implements InterfaceB {
     private Integer b2;
 
 
+    @Override
+    public void step1() {
+        super.step1();
+    }
+
+    @Override
+    public void step2() {
+        System.out.println("class b step2");
+    }
+
     public ClassB(Integer b1, Integer b2) {
         this.b1 = b1;
         this.b2 = b2;

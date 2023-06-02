@@ -19,4 +19,15 @@ public class ClassA implements InterfaceA {
     public String getAResult() {
         return "A";
     }
+
+    public void step1() {
+        System.out.println("class a step1");
+        this.step2();
+    }
+
+    public void step2() {
+        System.out.println("class a step2");
+    }
+
+
 }
