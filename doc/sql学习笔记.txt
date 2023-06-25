@@ -16,6 +16,9 @@ alter table employee  add constraint ck_salary check(salary>0 and salary<10000)
 
 limit m,n	//显示从第m行（不包括第m行）开始的后n行记录
 
+//更改密码
+alter user 'root'@'localhost' identified by '624957381';
+
 //设置事务隔离级别
 SET [SESSION | GLOBAL] TRANSACTION ISOLATION LEVEL {READ UNCOMMITTED | READ COMMITTED | REPEATABLE READ | SERIALIZABLE}
 

@@ -1,0 +1,24 @@
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+property-test:
+  userInfo:
+    username: tyy
+    password: 123
+    phone: 12345667213
+---
+
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev1
+
+---
