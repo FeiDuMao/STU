@@ -22,13 +22,16 @@ dependencies {
     implementation(libs.slf4j)
     implementation(platform(libs.springboot.dependencies))
     implementation(libs.springboot.web)
-    implementation(libs.springboot.data.jpa)
     implementation(libs.guava)
 
     implementation(libs.bundles.jacksonApi)
 
     testImplementation(libs.springboot.test)
+
+
     runtimeOnly(libs.mysqlDriver)
+    implementation(libs.springboot.data.jpa)
+
     runtimeOnly(libs.springboot.actuator)
 }
 

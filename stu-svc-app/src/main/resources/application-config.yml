@@ -21,4 +21,25 @@ spring:
     activate:
       on-profile: dev1
 
+property-test:
+  userInfo:
+    username: jy
+    password: 123123123
+    phone: 12345124124142667213
+
+---
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev2
+
+property-test:
+  userInfo:
+    username: jy
+    password: 123123123
+    phone: 12345124124142667213
+
+
 ---

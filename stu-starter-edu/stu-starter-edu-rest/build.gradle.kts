@@ -12,6 +12,17 @@ dependencies {
 
 
 
+
+
+    implementation(project(":common"))
+
+    implementation(project(":stu-starter-edu:stu-starter-edu-core"))
+    implementation(project(":stu-starter-edu:stu-starter-edu-jpa"))
+
+
+
+
+
     implementation(libs.slf4j)
     implementation(platform(libs.springboot.dependencies))
     implementation(libs.springboot.web)

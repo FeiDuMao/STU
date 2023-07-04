@@ -55,6 +55,8 @@ class GenarateEsgDataTest {
                     .toArray(new MapSqlParameterSource[data.size()]);
 
             log.info("start to update data , size = {}", mapSqlParameterSources.length);
+
+
             jdbcTemplate.batchUpdate(
                     "insert into esg_score_stock(report_date, stock_code, esg_organization_id, total_score, rating, environment, social, governance, creator)" +
                             " values (:report_date,:stock_code,:esg_organization_id,:total_score,:rating,:environment,:social,:governance,:creator) " +

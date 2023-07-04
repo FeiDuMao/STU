@@ -35,7 +35,6 @@ import org.springframework.context.event.EventListener;
 public class TApplication {
 
 
-
     @Autowired
     private ApplicationContext applicationContext;
 
@@ -51,4 +50,5 @@ public class TApplication {
         }
         log.info("TApplication is ready !!");
     }
+
 }

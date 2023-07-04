@@ -17,6 +17,7 @@ public class DataSourceConfiguration {
     public HikariDataSource study01DataBase() {
         return new HikariDataSource();
     }
+
     @Bean
     public LocalSessionFactoryBean entityManagerFactory(@Qualifier("study01") HikariDataSource dataSource) {
         LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
