@@ -2,10 +2,13 @@ package com.tyy.stu.sort;
 
 import java.util.Random;
 
-public class SortUtils {
+public interface ArraySort {
+
+    int[] sort(int[] arr);
 
 
-    public static int[] getArr() {
+
+    default int[] getArr() {
         return new int[]{6, 2, 4, 9, 5, 7, 3, 8, 1};
     }
 
@@ -13,7 +16,7 @@ public class SortUtils {
      * @param size 数组的大小
      * @return 返回给定大小的随机数组（0 - size）中的随机数
      */
-    public static int[] getArr(int size) {
+    default int[] getArr(int size) {
         int[] result = new int[size];
         Random random = new Random();
         for (int i = 0; i < size; i++) {
@@ -23,7 +26,11 @@ public class SortUtils {
     }
 
 
-    public static int[] swap(int[] arr, int a, int b) {
+    default int max(int a, int b) {
+        return a - b > 0 ? a : b;
+    }
+
+    default int[] swap(int[] arr, int a, int b) {
 
         if (a < 0 || b < 0 || a > arr.length || b > arr.length) throw new IndexOutOfBoundsException();
 

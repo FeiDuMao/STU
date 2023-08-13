@@ -1,6 +1,6 @@
 package com.tyy.stu.designPatterns;
 
-public class Factory {
+public class FactoryPattern {
 
 
 

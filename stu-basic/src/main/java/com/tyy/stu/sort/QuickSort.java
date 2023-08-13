@@ -1,40 +1,43 @@
 package com.tyy.stu.sort;
 
 
-import static com.tyy.stu.sort.SortUtils.swap;
-
 /**
  * 快速排序
  * 时间复杂度： 最好情况： n*log(n); 最坏情况：n^2
  * 空间复杂度： log(n)
  */
-public class QuickSort {
+public class QuickSort implements ArraySort {
 
 
-    public static void main(String[] args) {
 
-        int[] arr = new int[]{6, 2, 4, 9, 5, 7, 3, 8, 1};
+    @Override
+    public int[] sort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+        return arr;
+    }
 
+
+    private void quickSort(int[] array, int low, int hight) {
+        //if (array.length < 1 || low < 0 || hight >= array.length || low > hight) return null;
+        if (low < hight) {
+            int privotpos = partition(array, low, hight);
+            quickSort(array, low, privotpos - 1);
+            quickSort(array, privotpos + 1, hight);
+        }
 
     }
 
 
-    private int[] sort(int[] arr, int start, int end) {
-
-
-        int mid = arr[start];//本轮排序的基准，比它小的放到左边，大的放到右边
-        start++;
-
-        while (start <= end) {
-            if (arr[start] >= mid) {
-                swap(arr, start, end);
-
-            }
-
+    private int partition(int[] array, int low, int hight) {
+        int privot = array[low];
+        while (low < hight) {
+            while (low < hight && array[hight] >= privot) --hight;
+            array[low] = array[hight];
+            while (low < hight && array[low] <= privot) ++low;
+            array[hight] = array[low];
         }
-
-
-        return arr;
+        array[low] = privot;
+        return low;
     }
 
 

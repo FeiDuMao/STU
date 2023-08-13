@@ -7,21 +7,14 @@ import java.util.Arrays;
  * 时间复杂度： 最好情况最坏情况都是 n*log(n)
  * 空间复杂度： O(n)
  */
-public class MergeSort {
-
-
-    public static void main(String[] args) {
-
-        int[] result = sort(SortUtils.getArr(100000));
-        System.out.println(Arrays.toString(result));
-
-    }
+public class MergeSort implements ArraySort {
 
 
     /**
      * 将数组进行拆分到最小，然后一步步往上合并
      */
-    private static int[] sort(int[] arr) {
+    @Override
+    public int[] sort(int[] arr) {
 
         int[] left = Arrays.copyOfRange(arr, 0, arr.length / 2);
         int[] right = Arrays.copyOfRange(arr, arr.length / 2, arr.length);
@@ -29,7 +22,7 @@ public class MergeSort {
         if (arr.length <= 2) {
             return merge(left, right);
         }
-        return merge(sort(left), sort(right));
+        return merge(this.sort(left), this.sort(right));
     }
 
 
@@ -40,11 +33,10 @@ public class MergeSort {
      * @param b 已经排序后的数组
      * @return 排序后的新数组
      */
-    private static int[] merge(int[] a, int[] b) {
+    private int[] merge(int[] a, int[] b) {
 
         int[] result = new int[a.length + b.length];
         int i = 0, j = 0, k = 0;
-
 
         while (i < a.length && j < b.length) {
             if (a[i] < b[j]) result[k++] = a[i++];
