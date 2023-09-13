@@ -1,25 +1,20 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class Basic {
+public class Basic2 {
 
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        List<Integer> nums = new ArrayList<>(10);
-        while (in.hasNextInt()) {
-            int num = in.nextInt();
-            if (num == 0) {
-                break;
-            }
-            nums.add(num);
+        int size = in.nextInt();
+        Set<Integer>nums = new HashSet<>(size);
+        for (int i = 0; i < size; i++) {
+            nums.add(in.nextInt());
         }
-        for (Integer num : nums) {
-            System.out.println(solve(num));
-        }
+
+        nums.stream().sorted().forEach(System.out::println);
+
     }
 
 

@@ -1,5 +1,6 @@
 package com.tyy.stu.utils;
 
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +12,7 @@ public class TExecutor {
     }
 
     private static final Logger log = LoggerFactory.getLogger(TExecutor.class);
+    @Getter
     private static final ThreadPoolExecutor executor;
     private static final int MAX_QUEUE_SIZE = 100;
     private static final int CORE_POOL_SIZE = Runtime.getRuntime().availableProcessors();
@@ -26,10 +28,6 @@ public class TExecutor {
                 new ThreadPoolExecutor.CallerRunsPolicy()
         );
         log.info("executor init success ! core pool size = {}", CORE_POOL_SIZE);
-    }
-
-    public static ThreadPoolExecutor getExecutor() {
-        return executor;
     }
 
 
