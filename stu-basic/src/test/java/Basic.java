@@ -1,25 +1,23 @@
+import com.tyy.stu.obj.TreeNode;
+import com.tyy.stu.utils.TExecutor;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class Basic {
 
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        List<Integer> nums = new ArrayList<>(10);
-        while (in.hasNextInt()) {
-            int num = in.nextInt();
-            if (num == 0) {
-                break;
-            }
-            nums.add(num);
-        }
-        for (Integer num : nums) {
-            System.out.println(solve(num));
-        }
+
+
+        ThreadPoolExecutor executor = TExecutor.getExecutor();
+        executor.submit(null, null);
+        executor.execute(null);
+
+
     }
 
 
@@ -27,26 +25,49 @@ public class Basic {
     public void test() {
 
 
-        System.out.println(solve(10));
-        System.out.println(solve(3));
-        System.out.println(solve(5));
+        new ArrayList<>();
+        new LinkedList<>();
+
+
+        TreeNode simpleNode = TreeNode.getSimpleNode();
+        visit2(simpleNode);
 
     }
 
 
-    private static int solve(int n) {
+    /**
+     * 便利二叉树： 中左右
+     *
+     * @param node
+     */
+    public void visit1(TreeNode node) {
+        if (node == null) return;
+        System.out.println(node.getVal());
 
-        int sum = 0;
+        if (node.getLeft() != null) visit1(node.getLeft());
+        if (node.getRight() != null) visit1(node.getRight());
 
-        while (n >= 3) {
-            int a = n / 3;
-            int b = n % 3;
 
-            sum += a;
-            n = a + b;
+    }
 
+
+    /**
+     * 层次遍历二叉树
+     *
+     * @param node head
+     */
+    public void visit2(TreeNode node) {
+
+        if (node == null) return;
+        List<TreeNode> list = new ArrayList<>();
+        list.add(node);
+
+        while (!list.isEmpty()) {
+            TreeNode head = list.remove(0);
+            System.out.println(head.getVal());
+            if (head.getLeft() != null) list.add(head.getLeft());
+            if (head.getRight() != null) list.add(head.getRight());
         }
-        return n == 2 ? ++sum : sum;
     }
 
 

@@ -94,8 +94,8 @@ LinkedList：底层基于链表实现，还实现了Deque接口，可以当队�
 
 他们都继承了AbstractList,其中，modCount记录了修改的次数，在使用他们的迭代器时，通过检查modCount是否改变，保证安全性
 
-HashMap：线程不安全，key和value都可以为空，数组默认长度为16；
-HashTable：与hashmap几乎相同，但是线程安全（get/put都是synchronized），不允许key和value为空。多线程下效率低。
+HashMap：线程不安全，key可以为空，value也可以为空。 数组默认长度为16；
+HashTable：与hashmap几乎相同，但是线程安全（get/put都是synchronized），key不能为空，value也不能为空。多线程下效率低。
 ConcurrentHashMap：采用锁分段技术，分段后，每段类似一个HashTable。效率更高。
 
 HashMap的容量为什么要初始化为2的n次幂？

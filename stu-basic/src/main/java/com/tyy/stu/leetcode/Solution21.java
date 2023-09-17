@@ -1,6 +1,6 @@
 package com.tyy.stu.leetcode;
 
-import com.tyy.stu.leetcode.obj.ListNode;
+import com.tyy.stu.obj.ListNode;
 import org.junit.jupiter.api.Test;
 
 public class Solution21 {
