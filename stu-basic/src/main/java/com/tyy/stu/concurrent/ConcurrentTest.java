@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.function.Function;
@@ -15,6 +16,17 @@ import java.util.stream.Stream;
 
 public class ConcurrentTest {
 
+
+    @SneakyThrows
+    @Test
+    public void test3() {
+
+        CompletableFuture.runAsync(() -> SyncTest.test1());
+        CompletableFuture.runAsync(() -> SyncTest.test2());
+
+        Thread.sleep(15000);
+
+    }
 
     @SneakyThrows
     @Test
@@ -43,14 +55,12 @@ public class ConcurrentTest {
 
         List<String> result = new ArrayList<>();
 
-        Future<List<String>> future = executor.submit(
-                () -> {
-                    result.add("aaa");
-                    result.add("bbb");
-                    result.add("ccc");
-                    System.out.println("add success");
-                }, result
-        );
+        Future<List<String>> future = executor.submit(() -> {
+            result.add("aaa");
+            result.add("bbb");
+            result.add("ccc");
+            System.out.println("add success");
+        }, result);
         Future<String> result1 = executor.submit(() -> "null");
         result1.get();
         List<String> strings = future.get();
@@ -70,19 +80,13 @@ public class ConcurrentTest {
         long m1 = System.currentTimeMillis();
 
 
-        Map<Integer, List<String>> result1 = integerStream1.collect(Collectors.toMap(
-                Function.identity(),
-                ConcurrentTest::fun
-        ));
+        Map<Integer, List<String>> result1 = integerStream1.collect(Collectors.toMap(Function.identity(), ConcurrentTest::fun));
         long m2 = System.currentTimeMillis();
 
 
         long m3 = System.currentTimeMillis();
 
-        Map<Integer, List<String>> result2 = integerStream2.parallel().collect(Collectors.toMap(
-                Function.identity(),
-                ConcurrentTest::synFun
-        ));
+        Map<Integer, List<String>> result2 = integerStream2.parallel().collect(Collectors.toMap(Function.identity(), ConcurrentTest::synFun));
 
         long m4 = System.currentTimeMillis();
 
@@ -90,17 +94,11 @@ public class ConcurrentTest {
 
         long m5 = System.currentTimeMillis();
 
-        Map<Integer, List<String>> result3 = integerStream3.parallel().collect(Collectors.toMap(
-                Function.identity(),
-                ConcurrentTest::fun
-        ));
+        Map<Integer, List<String>> result3 = integerStream3.parallel().collect(Collectors.toMap(Function.identity(), ConcurrentTest::fun));
 
         long m6 = System.currentTimeMillis();
 
-        Map<Integer, List<String>> result4 = integerStream4.parallel().collect(Collectors.toConcurrentMap(
-                Function.identity(),
-                ConcurrentTest::fun
-        ));
+        Map<Integer, List<String>> result4 = integerStream4.parallel().collect(Collectors.toConcurrentMap(Function.identity(), ConcurrentTest::fun));
         long m7 = System.currentTimeMillis();
 
 

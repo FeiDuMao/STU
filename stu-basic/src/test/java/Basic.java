@@ -2,9 +2,7 @@ import com.tyy.stu.obj.TreeNode;
 import com.tyy.stu.utils.TExecutor;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class Basic {
@@ -21,22 +19,44 @@ public class Basic {
     }
 
 
+
+    private String tryTest(){
+        try {
+            System.out.println("aaaaa");
+
+            int i = 1 / 0;
+            System.out.println("aaaaaaaaaaaaa");
+            return "a";
+        }catch (Exception e){
+            System.out.println("bbbbb");
+            return "b";
+        }finally {
+            System.out.println("ccccc");
+//            return "c";
+        }
+    }
+
+
     @Test
     public void test() {
 
+        System.out.println(tryTest());
 
-        new ArrayList<>();
-        new LinkedList<>();
+    }
 
+    @Test
+    public void test2() {
 
-        TreeNode simpleNode = TreeNode.getSimpleNode();
-        visit2(simpleNode);
+        Integer a1 = 12;
+        Integer a2 = Integer.valueOf(12);
+        System.out.println(a1 == a2);
+        System.out.println(a1.equals(a2));
 
     }
 
 
     /**
-     * 便利二叉树： 中左右
+     * 遍历二叉树： 中左右
      *
      * @param node
      */

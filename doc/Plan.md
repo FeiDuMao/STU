@@ -1,7 +1,7 @@
 redis集群
 git
 设计模式：工厂模式，策略模式，适配器模式
-Spring:AOP  EndPoint
+Spring:AOP EndPoint
 Netty
 ajax
 JMX
@@ -13,7 +13,7 @@ RPC
 过滤器拦截器
 mangoDB
 Optional
-stream().xxx 
+stream().xxx
 java8新特性学习
 函数式接口！
 **泛型擦除**
@@ -29,3 +29,5 @@ json序列化与反序列化
 objectMapper
 RunTime.getRunTime();
 OperatingSystemMXBean
+
+Update加锁测试

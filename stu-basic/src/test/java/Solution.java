@@ -1,50 +1,95 @@
 import org.junit.jupiter.api.Test;
 
-/**
- * 给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组。如果不存在符合条件的连续子数组，返回 0。示例:
- * 输入: s = 7, nums = [2,3,1,2,4,3]
- * 输出: 2
- * 解释: 子数组 [4,3] 是该条件下的长度最小的连续子数组。
- */
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class Solution {
 
 
-    private void solve(int[] arr, int target) {
+    @Test
+    public void solve() {
 
 
-        int min = 0;
+        List<Node> nodes = List.of(new Node("A", "-1"),
 
-        for (int i = 0; i < arr.length; i++) {
-            int sum = arr[i];
+                new Node("A-1", "A"), new Node("A-2", "A"), new Node("A-3", "A"),
 
-            if (sum == target) {
-                min = 1;
-                break;
-            }
+                new Node("A-2-1", "A-2"), new Node("A-2-2", "A-2"), new Node("A-2-3", "A-2"), new Node("A-2-4", "A-2"));
 
-            for (int j = i + 1; j < arr.length; j++) {
-                sum += arr[j];
-                if (sum < target) continue;
 
-                if (min == 0) min = j - i + 1;
-                else min = Math.min(min, j - i + 1);
-                break;
-            }
+        Map<String, List<Node>> pid2Node = nodes.stream().collect(Collectors.groupingBy(Node::getPid));
+
+        List<Node> root = pid2Node.get("-1");
+
+        root.forEach(it -> print(pid2Node, it));
+
+
+    }
+
+
+    private void print(Map<String, List<Node>> pid2Node, Node node) {
+        List<Node> nodes = pid2Node.get(node.getId());
+
+        if (nodes != null && !nodes.isEmpty()) {
+            nodes.forEach(it -> print(pid2Node, it));
         }
-
-        System.out.println(min);
+        System.out.println(node.getId());
 
     }
 
 
     @Test
-    public void test() {
+    public void main1() {
 
-        solve(new int[]{2,3,1,2,4,3},8);
+        int[] a = new int[]{1, 2, 3, 4, 5};
+        int[] b = new int[]{2, 3, 5};
 
+        Arrays.sort(b);
 
+        for (int i = 0; i < a.length; i++) {
+
+            if (binarySearch(b, a[i])) {
+                System.out.println(i);
+            }
+
+        }
 
     }
 
+
+    private static boolean binarySearch(int[] a, int target) {
+
+
+        int start = 0;
+        int end = a.length - 1;
+
+        while (start <= end) {
+            int index = (start + end) / 2;
+
+            int tmp = a[index];
+
+            if (tmp > target) {
+                end = index;
+            } else if (tmp < target) {
+                start = index + 1;
+            } else {
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
+
+    @Test
+    public void test2() {
+
+        int[] arr = {1, 2, 3, 4, 5};
+        List.of(1, 2, 3, 4, 5, 6, 7).forEach(it -> System.out.println(binarySearch(arr, it)));
+
+    }
 
 }
