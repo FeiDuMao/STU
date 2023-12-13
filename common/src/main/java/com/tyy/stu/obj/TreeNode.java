@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,6 +43,28 @@ public class TreeNode {
         System.out.println("********************");
         return a;
     }
+
+
+    /**
+     * 打印二叉树
+     *
+     * @param root 根节点
+     */
+    public static void visit(TreeNode root) {
+        //todo 按照层次结构打印一颗二叉树，并且展示左右节点
+        if (root == null) return;
+        List<TreeNode> nodes = new ArrayList<>();
+        nodes.add(root);
+        while (!nodes.isEmpty()) {
+            TreeNode tmp = nodes.remove(0);
+            if (tmp.getLeft() != null) nodes.add(tmp.getLeft());
+            if (tmp.getRight() != null) nodes.add(tmp.getRight());
+            System.out.println(tmp.getVal());
+        }
+
+    }
+
+
 
 
 }

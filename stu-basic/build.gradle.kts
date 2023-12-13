@@ -21,6 +21,10 @@ dependencies {
     implementation(libs.bundles.jacksonApi)
 
     implementation(libs.jmh.core)
+
+    implementation(libs.spring.web)
+    implementation(libs.cglib)
+
     annotationProcessor(libs.jmh.generator.annprocess)
 
 

@@ -4,7 +4,6 @@ import com.tyy.stu.utils.TestUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.PriorityQueue;
 
 class Solution135 {
 
@@ -25,7 +24,7 @@ class Solution135 {
 
         }
 
-        for (int i = ratings.length-1; i > 0; i--) {
+        for (int i = ratings.length - 1; i > 0; i--) {
             if (ratings[i - 1] > ratings[i]) {
                 right[i - 1] = right[i] + 1;
             }
@@ -43,8 +42,8 @@ class Solution135 {
 
     @Test
     public void test() {
-        int[] arr = TestUtil.getArr(4);
-        System.err.println(candy(new int[]{1,2,2}));
+        int[] arr = TestUtil.getRandomArr(10, 0, 100);
+        System.err.println(candy(new int[]{1, 2, 2}));
 
 
     }

@@ -1,37 +1,38 @@
 [versions]
-springboot ="2.7.4"
-spring ="5.3.23"
+springboot = "2.7.4"
+spring = "5.3.23"
 junit = "5.8.2"
 mockito = "4.5.1"
 mockito_kotlin = "4.0.0"
 mockk = "1.13.2"
 lombok = "1.18.24"
 guava = "31.1-jre"
-slf4j="1.7.36"
+slf4j = "1.7.36"
 mysql = "8.0.30"
 kotlin_plugin = "1.8.10"
 jackson = "2.14.2"
-jmh="1.36"
+jmh = "1.36"
+cglib= "3.3.0"
 
 [libraries]
 
 #springboot
 springboot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springboot" }
-springboot-starter = { module = "org.springframework.boot:spring-boot-starter" ,version.ref = "springboot"}
-springboot-web = { module = "org.springframework.boot:spring-boot-starter-web" ,version.ref = "springboot"}
+springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
+springboot-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
 spring-web = { module = "org.springframework:spring-web", version.ref = "spring" }
 spring-core = { module = "org.springframework:spring-core", version.ref = "spring" }
 
-springboot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" ,version.ref = "springboot"}
+springboot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springboot" }
 springboot-processor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springboot" }
-springboot-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc",version.ref = "springboot" }
-springboot-data-jdbc = { module = "org.springframework.boot:spring-boot-starter-data-jdbc",version.ref = "springboot" }
-springboot-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa",version.ref = "springboot" }
-springboot-aop = { module = "org.springframework.boot:spring-boot-starter-aop" ,version.ref = "springboot"}
+springboot-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc", version.ref = "springboot" }
+springboot-data-jdbc = { module = "org.springframework.boot:spring-boot-starter-data-jdbc", version.ref = "springboot" }
+springboot-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springboot" }
+springboot-aop = { module = "org.springframework.boot:spring-boot-starter-aop", version.ref = "springboot" }
 
 
 #test
-springboot-test = { module = "org.springframework.boot:spring-boot-starter-test",version.ref = "springboot" }
+springboot-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
@@ -47,11 +48,14 @@ mysqlDriver = { module = "mysql:mysql-connector-java", version.ref = "mysql" }
 #jackson
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
 jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
-jackson-datatype = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" ,version.ref= "jackson" }
-jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin",version.ref="jackson" }
+jackson-datatype = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
-jmh-core ={ module = "org.openjdk.jmh:jmh-core",version.ref ="jmh"}
-jmh-generator-annprocess ={ module = "org.openjdk.jmh:jmh-generator-annprocess",version.ref ="jmh"}
+jmh-core = { module = "org.openjdk.jmh:jmh-core", version.ref = "jmh" }
+jmh-generator-annprocess = { module = "org.openjdk.jmh:jmh-generator-annprocess", version.ref = "jmh" }
+
+cglib = { module = "cglib:cglib", version.ref = "cglib" }
+
 
 
 [bundles]
