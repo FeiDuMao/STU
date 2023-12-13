@@ -21,9 +21,7 @@ public class Joseph {
     private static int findLast(int[] arr) {
         int tmp = arr.length;
         int i = 0;
-        while ((tmp = tmp >> 1) > 0) {
-            i++;
-        }
+        while ((tmp = tmp >> 1) > 0) i++;
         int index = arr.length - (int)Math.pow(2, i);
         return arr[(2 * index)+1];
     }
