@@ -1,5 +1,7 @@
 package com.tyy.stu.knacks;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 约瑟夫环
  * X = 总个数
@@ -12,29 +14,34 @@ public class Joseph {
 
     public static void main(String[] args) {
 
-        System.out.println(getLastResult(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+        System.out.println(findLast(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
     }
 
 
-    private static int getLastResult(int[] arr) {
-
-        int length = arr.length;
-        int a = 0;
-        for (int i = 0; i < length; i++) {
-            double pow = Math.pow(2, i);
-            if (pow < length) continue;
-            if (pow == length) {
-                a = length - (int) Math.pow(2, i);
-                break;
-            }
-            if (pow > length) {
-                a = length - (int) Math.pow(2, i - 1);
-                break;
-            }
+    private static int findLast(int[] arr) {
+        int tmp = arr.length;
+        int i = 0;
+        while ((tmp = tmp >> 1) > 0) {
+            i++;
         }
-
-        return arr[2 * a];
+        int index = arr.length - (int)Math.pow(2, i);
+        return arr[(2 * index)+1];
     }
 
+
+    @Test
+    public void test() {
+
+
+        int a = 8;
+
+        int i = 1;
+        while ((a = a >> 1) > 0) {
+            i++;
+        }
+        System.out.println(i);
+
+
+    }
 
 }
