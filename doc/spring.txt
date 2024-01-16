@@ -3,7 +3,8 @@
 Constructor >> @Autowired >> @PostConstruct
 
 
-
+使用@value注解时，如果设置了默认值，那么配置文件里没有相关的配置，启动服务的时候也不会报错
+所以推荐在使用该注解的时候，设置好默认值
 
 
 
